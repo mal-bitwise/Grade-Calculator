@@ -1,18 +1,20 @@
 package main;
 
+import java.util.Scanner;
+
 public class Student {
 	int totalWam = 0;
 	float totalGPA = 0;
 	
-	int[] gradesArray;
+	float[] gradesArray;
 	
 	int numOfGrades;
 	
 	final int CREDIT_POINT_NUM = 6;
 	
-	public Student(int size) {
-		this.numOfGrades = size;
-		gradesArray = new int[size];
+	public Student(int numOfGrades) {
+		this.numOfGrades = numOfGrades;
+		gradesArray = new float[numOfGrades];
 	}
 	
 	public void inputGrades() {
@@ -21,18 +23,22 @@ public class Student {
 		int i = 0;
 		
 		do {
+			gradesArray[i] = getStudentInput();
+			i++;
 			count++;
-			
-			gradesArray[i] = tempGrades[i];
-			i++;	
 		}while(count < numOfGrades);
 	}
 	
-	public void displayGrades() {
-		for(int i =0; i < numOfGrades;i++) {
-			System.out.println(gradesArray[i]);
-		}
+	private float getStudentInput() {
+		
+		//This is temp for testing
+		Scanner s = new Scanner(System.in);
+		
+		float grade = s.nextFloat();
+		
+		return grade;
 	}
+	
 	
 	public int getTotalWAM() {
 		int total = 0;
@@ -60,6 +66,12 @@ public class Student {
 			}
 		}
 		return totalPointsEarned / totalCreditPoints;
+	}
+	
+	public void displayGrades() {
+		for(int i =0; i < numOfGrades;i++) {
+			System.out.println(gradesArray[i]);
+		}
 	}
 	
 	public void displayStudentGPA() {
