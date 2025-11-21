@@ -1,13 +1,8 @@
 package main;
 
 public class Student {
-	
-	int semesterNum = 1;
 	int totalWam = 0;
 	float totalGPA = 0;
-	
-	int tempWam = 0;
-	int tempGPA = 0;
 	
 	int[] gradesArray;
 	
@@ -33,7 +28,7 @@ public class Student {
 		}while(count < numOfGrades);
 	}
 	
-	public void displayArray() {
+	public void displayGrades() {
 		for(int i =0; i < numOfGrades;i++) {
 			System.out.println(gradesArray[i]);
 		}
@@ -51,7 +46,7 @@ public class Student {
 		float totalPointsEarned = 0;
 		int totalCreditPoints = CREDIT_POINT_NUM * numOfGrades;
 		
-		for(int i = 0; i < numOfGrades; i++) {
+		for(int i = 0; i < numOfGrades; i++) {			
 			if(gradesArray[i] >= 80) {
 				totalPointsEarned += 7.0 * CREDIT_POINT_NUM;
 			}else if(gradesArray[i] >= 70) {
@@ -66,4 +61,13 @@ public class Student {
 		}
 		return totalPointsEarned / totalCreditPoints;
 	}
+	
+	public void displayStudentGPA() {
+		System.out.println("GPA: "+getTotalGPA());
+	}
+	
+	public void displayStudentWAM() {
+		System.out.println("WAM: "+getTotalWAM());
+	}
+	
 }
