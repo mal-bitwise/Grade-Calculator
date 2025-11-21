@@ -18,7 +18,7 @@ public class Student {
 	}
 	
 	public void inputGrades() {
-		int[] tempGrades = {88, 78, 68, 45};
+		//int[] tempGrades = {88, 78, 68, 45};
 		int count = 0;
 		int i = 0;
 		
