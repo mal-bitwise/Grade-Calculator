@@ -39,7 +39,6 @@ public class Student {
 		return grade;
 	}
 	
-	
 	public int getTotalWAM() {
 		int total = 0;
 		for(int i =0; i < numOfGrades; i++) {
