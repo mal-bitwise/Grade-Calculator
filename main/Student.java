@@ -6,38 +6,43 @@ public class Student {
 	int totalWam = 0;
 	float totalGPA = 0;
 	
-	float[] gradesArray;
+	static float[] gradesArray;
+	static int counter = 0;
 	
 	int numOfGrades;
 	
-	final int CREDIT_POINT_NUM = 6;
+	private final int CREDIT_POINT_NUM = 6;
 	
 	public Student(int numOfGrades) {
 		this.numOfGrades = numOfGrades;
 		gradesArray = new float[numOfGrades];
 	}
 	
-	public void inputGrades() {
+	public void inputGrade() {
 		//int[] tempGrades = {88, 78, 68, 45};
 		int count = 0;
 		int i = 0;
 		
 		do {
-			gradesArray[i] = getStudentInput();
+		//	gradesArray[i] = getStudentInput();
 			i++;
 			count++;
 		}while(count < numOfGrades);
 	}
 	
-	private float getStudentInput() {
-		
-		//This is temp for testing
-		Scanner s = new Scanner(System.in);
-		
-		float grade = s.nextFloat();
-		
-		return grade;
+	public void inputGradeTest(float grade) {
+		if(counter < numOfGrades) {
+			gradesArray[counter] = grade;
+			counter++;
+		}
 	}
+	
+	public void resetGrades() {
+		counter = 0;
+		float[] newArray = new float[numOfGrades];
+		gradesArray = newArray;
+	}
+	
 	
 	public int getTotalWAM() {
 		int total = 0;
