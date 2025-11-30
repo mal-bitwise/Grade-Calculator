@@ -41,7 +41,8 @@ public class Student {
 	
 	public void resetGrades() {
 		counter = 0;
-		float[] newArray = new float[gradesArray.length];
+		
+		float[] newArray = new float[1];
 		gradesArray = newArray;
 	}
 	

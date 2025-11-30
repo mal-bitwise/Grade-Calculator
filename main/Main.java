@@ -13,12 +13,7 @@ package main;
 
 public class Main {
 	public static void main(String[] args) {
-		
-		int number_of_grades = 4;
 		Student s = new Student();
-		System.out.println("Enter Student Grades: ");
-		
-		UI ui = new UI(s);
-		
+		UI ui = new UI(s);	
 	}
 }
