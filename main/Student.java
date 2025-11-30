@@ -13,50 +13,52 @@ public class Student {
 	
 	private final int CREDIT_POINT_NUM = 6;
 	
-	public Student(int numOfGrades) {
-		this.numOfGrades = numOfGrades;
-		gradesArray = new float[numOfGrades];
+	public Student() {
+		gradesArray = new float[1];
 	}
 	
-	public void inputGrade() {
-		//int[] tempGrades = {88, 78, 68, 45};
-		int count = 0;
-		int i = 0;
-		
-		do {
-		//	gradesArray[i] = getStudentInput();
-			i++;
-			count++;
-		}while(count < numOfGrades);
-	}
 	
 	public void inputGradeTest(float grade) {
-		if(counter < numOfGrades) {
+		if(counter < gradesArray.length) {
 			gradesArray[counter] = grade;
 			counter++;
+		}else {
+			gradesArray = adjustArray(gradesArray);
+			inputGradeTest(grade);
 		}
+	}
+		
+	public float[] adjustArray(float[] arr) {
+		
+		float[] newArr = new float[arr.length + 1];
+		
+		for(int i = 0; i < arr.length; i++) {
+			newArr[i] = arr[i];
+		}
+		
+		return newArr;
 	}
 	
 	public void resetGrades() {
 		counter = 0;
-		float[] newArray = new float[numOfGrades];
+		float[] newArray = new float[gradesArray.length];
 		gradesArray = newArray;
 	}
 	
 	
 	public int getTotalWAM() {
 		int total = 0;
-		for(int i =0; i < numOfGrades; i++) {
+		for(int i =0; i < gradesArray.length; i++) {
 			total += gradesArray[i];
 		}
-		return total / numOfGrades;
+		return total / gradesArray.length;
 	}
 	
 	public float getTotalGPA() {
 		float totalPointsEarned = 0;
-		int totalCreditPoints = CREDIT_POINT_NUM * numOfGrades;
+		int totalCreditPoints = CREDIT_POINT_NUM * gradesArray.length;
 		
-		for(int i = 0; i < numOfGrades; i++) {			
+		for(int i = 0; i < gradesArray.length; i++) {			
 			if(gradesArray[i] >= 80) {
 				totalPointsEarned += 7.0 * CREDIT_POINT_NUM;
 			}else if(gradesArray[i] >= 70) {
@@ -73,7 +75,9 @@ public class Student {
 	}
 	
 	public void displayGrades() {
-		for(int i =0; i < numOfGrades;i++) {
+		System.out.println("GRADES");
+		for(int i =0; i < gradesArray.length;i++) {
+
 			System.out.println(gradesArray[i]);
 		}
 	}
